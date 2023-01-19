@@ -6,6 +6,7 @@
   "singleQuote": true,
   "printWidth": 100,
   "endOfLine": "auto",
-  "htmlWhitespaceSensitivity": "strict",
-  "vueIndentScriptAndStyle": true
+  "vueIndentScriptAndStyle": true,
+  "htmlWhitespaceSensitivity": "ignore",
+  "bracketSameLine": true
 }
