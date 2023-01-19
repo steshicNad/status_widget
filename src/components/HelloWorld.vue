@@ -1,28 +1,112 @@
-<template >
+<template>
   <div class="flex flex-col w-[25.9vw] rounded-2xl h-[34.8vh] bg-[#30323D]">
-    <div class="flex z-10 w-[25.9vw]    justify-between h-[3.8vh] gap-[0.83vw]  bg-[#30323D] shadow-md  shadow-[#272933]">
-      <div class="flex  items-center w-[19vw] justify-between">
-        <div class="flex ml-[1.04vw] items-center w-[6.1vw] text-[1.6vh] uppercase text-[#00FF94] ">Состояния</div>
-        <div class="flex items-center w-[3.6vw] text-[0.92vh] text-[#D6EBFF]">Время начала</div>
+    <div
+      class="flex z-10 w-[25.9vw] rounded-t-2xl h-[3.8vh] gap-[0.83vw] bg-[#30323D] shadow-md shadow-[#272933]"
+    >
+      <div class="flex ml-[1.04vw] items-center text-[1.6vh] uppercase text-[#00FF94]"
+        >Состояния</div
+      >
+      <div class="ml-[7.34vw] w-maxw flex items-center gap-[0.83vw]">
+        <div class="flex items-center text-[0.92vh] text-[#D6EBFF]">Время начала</div>
+        <div class="flex items-center">
+          <img src="src/img/vector.svg" class="h-[1.8vh] w-[1px]" />
+        </div>
+        <div class="flex items-center text-[0.92vh] text-[#D6EBFF]">Время окончания</div>
       </div>
-      <div class="flex items-center">
-          <img src="src/img/vector.svg" class="h-[1.8vh]" />
-      </div>
-      <div class="flex items-center  w-[6.97vw] text-[0.92vh]  text-[#D6EBFF]">Время окончания</div>
     </div>
-    <div class="flex items-center w-[25.9vw] h-[30.9vh] bg-[#30323D]">
+    <div class="flex flex-col mt-[2.4vh] rounded-b-2xl w-[25.9vw] h-[31vh] bg-[#30323D]">
+      <!-- 1 строка (таких надо 5) -->
+
+      <div class="flex flex-col ml-[1.04vw]" v-for="i in test" :key="i">
+        <div class="flex items-center">
+          <div class="flex w-[10vw] items-center text-[1.48vh] text-[#00FF94]">{{
+            i.condition
+          }}</div>
+          <div class="flex w-maxw ml-[2.76vw] gap-[0.83vw] text-[1.1vh] text-[#00FF94]">
+            <div class="flex gap-[0.41vw]">
+              <div class="flex items-center">{{ i.data1 }}</div>
+              <div class="flex items-center">{{ i.time1 }}</div>
+            </div>
+
+            <div class="flex items-center">
+              <img src="src/img/vector.svg" class="h-[1.8vh] w-[1px]" />
+            </div>
+
+            <div class="flex gap-[0.41vw]">
+              <div class="flex items-center">{{ i.data2 }}</div>
+              <div class="flex items-center">{{ i.time2 }}</div>
+            </div>
+          </div>
+        </div>
+        <hr class="h-px my-[0.83vh] w-[23.9vw] bg-[#00C2FF] border-0" />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-defineProps({
-  msg: {
-    type: String,
-    required: true
-  }
-})
+  defineProps({
+    msg: {
+      type: String,
+      required: true,
+    },
+  });
+
+  const test = [
+    {
+      condition: 'В работе',
+      data1: '06.10.22',
+      time1: '16:49',
+      data2: '12.10.22',
+      time2: '12:00',
+    },
+    {
+      condition: 'Работа на ТТ',
+      data1: '07.10.22',
+      time1: '12:29',
+      data2: '--------',
+      time2: '',
+    },
+    {
+      condition: 'Температура норм',
+      data1: '08.10.22',
+      time1: '11:55',
+      data2: '14.10.22',
+      time2: '15:32',
+    },
+    {
+      condition: 'Номинальные обороты',
+      data1: '09.10.22',
+      time1: '10:12',
+      data2: '15.10.22',
+      time2: '10:11',
+    },
+    {
+      condition: 'Расход топлива норм',
+      data1: '10.10.22',
+      time1: '15:25',
+      data2: '16.10.22',
+      time2: '13:55',
+    },
+  ];
+  const data = {
+    test,
+  };
+  // data: () => {
+  //   return {
+  //     conditions: [
+  //       'Расход топлива норм',
+  //       'Номинальные обороты',
+  //       'Температура норм',
+  //       'Работа на ТТ',
+  //       'В работе',
+  //     ],
+  //     data1: ['06.10.22', '07.10.22', '08.10.22', '09.10.22', '10.10.22'],
+  //     data2: ['12.10.22', '--------', '14.10.22', '15.10.22', '16.10.22'],
+  //     time1: ['16:49', '12:29', '11:55', '10:12', '15:25'],
+  //     time2: ['12:00', '', '15:32', '10:11', '13:55'],
+  //   };
+  // };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

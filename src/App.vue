@@ -1,19 +1,17 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+  import HelloWorld from './components/HelloWorld.vue';
 </script>
 
 <template>
- <HelloWorld>
-  
- </HelloWorld>
+  <HelloWorld></HelloWorld>
 </template>
 
 <style>
-@import './style.css'; 
+  @import './style.css';
 
-*{
-  box-sizing: border-box;
-}
+  * {
+    box-sizing: border-box;
+  }
 </style>
 
 <!-- <style scoped>
